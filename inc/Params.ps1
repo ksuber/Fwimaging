@@ -22,9 +22,9 @@ if ($boot) {
 
 if ($windows_adk_path -eq $null) {
 	if ($os -eq "server-2012r2" -or $os -eq "win7x64") {
-		$windows_adk_path="c:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit"
+		$windows_adk_path="c:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit"
 	} else {
-		$windows_adk_path="c:\Program Files (x86)\Windows Kits\8.0\Assessment and Deployment Kit"
+		$windows_adk_path="c:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit"
 	}
 }
 
@@ -80,7 +80,7 @@ $save_dir = "${script_path}\images\${os}\save"
 if ($boot -ne $true) {
 	# install.wim
 
-	$tools_dir = "${script_path}\tools\install.root"
+	$tools_dir = "${script_path}\tools\boot.root"
 
 	# Wim file that scripts process (AddTools, AddFeature, etc)
 	$wim_file = "${script_path}\images\${os}\work\install.wim"
@@ -141,7 +141,7 @@ if ($boot -ne $true) {
 			$wim_image_name = "Windows Server 2012 R2 SERVERDATACENTER"
 		} elseif ($edition -eq "standard") {
 			$wim_index = 2
-			$wim_image_name = "Windows Server 2012 R2 SERVERSTANDARD"
+			$wim_image_name = "Windows Server 2012 R2 Standard (Server with a GUI)"
 		}
 	} elseif ($os -eq "server-2016") {
 		# Directory where the updates are located
