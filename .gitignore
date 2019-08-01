@@ -12,9 +12,7 @@ images/*/work/*
 !install/*template
 !install/*
 !sources/*
-tools/boot.root/wimaging/utils/*
-tools/*/wimaging/log/*
-tools/*/wimaging/log/*
+
 
 install/drivers/*
 
