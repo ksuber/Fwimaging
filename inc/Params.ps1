@@ -151,11 +151,24 @@ if ($boot -ne $true) {
 			$wim_index = 4
 
 			# Image name in the original install.wim
-			$wim_image_name = "Windows Server 2016 SERVERDATACENTER"
+			$wim_image_name = "Windows Server 2016 Datacenter (Desktop Experience)"
 		} elseif ($edition -eq "standard") {
 			$wim_index = 2
-			$wim_image_name = "Windows Server 2016 SERVERSTANDARD"
+			$wim_image_name = "Windows Server 2016 Standard (Desktop Experience)"
 		}
+	} elseif ($os -eq "server-2019") {
+		# Directory where the updates are located
+		$updates_dir = $wsus_offline_dir+"\w100-x64\glb"
+		if ($edition -eq "datacenter") {
+			# Index of the actual image in the original install.wim
+			$wim_index = 4
+
+			# Image name in the original install.wim
+			$wim_image_name = "Windows Server 2019 Datacenter Evaluation (Desktop Experience)"
+		} elseif ($edition -eq "standard") {
+			$wim_index = 2
+			$wim_image_name = "Windows Server 2019 Standard Evaluation (Desktop Experience)"
+		}	
 	} elseif ($os -eq "win81x64") {
 		# Directory where the updates are located
 		$updates_dir = $wsus_offline_dir+"\w63-x64\glb"

@@ -345,7 +345,9 @@ function AddTools([string]$tools_dir, [string]$mount_dir) {
 	Write-Host "Adding Tools" -foregroundcolor "yellow"	
 	if ( $(Get-ChildItem $mount_dir | Measure-Object).count -ne 0) {
 		Write-Host "Copying Tools from ${tools_dir} to ${mount_dir}"
+		Get-Acl -Path $($tools_dir+"\*") | Set-Acl -Path $mount_dir
 		Copy-Item $($tools_dir+"\*") $mount_dir -Recurse -Force
+		
 	} else {
 		Write-Error "${mount_dir} is empty. Didnt' mount properly?"
 	}
